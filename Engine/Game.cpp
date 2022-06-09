@@ -20,9 +20,6 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
-#include <iostream>
-#include <string>
-#include "Sound.h"
 
 using std::string;
 
@@ -34,62 +31,33 @@ Game::Game(MainWindow& wnd)
 	Papyrus(L"Music/mus_papyrus.mp3"),
 	Sans(L"Music/mus_muscle.mp3"),
 	Mettaton(L"Music/mus_mettatonbattle.mp3"),
-	Megalovania(L"Music/mus_zz_megalovania.mp3")
+	Megalovania(L"Music/mus_zz_megalovania.mp3"),
+	Fallen(L"ASS"),
+	PapyrusB(L"ASS")
 {
 }
 
 void Game::Go()
 {
 	gfx.BeginFrame();
-	UpdateModel();
+	/*if (init == 0) {
+		BootScreen();
+	}*/
 	ComposeFrame();
 	gfx.EndFrame();
 }
 
-void Game::UpdateModel()
-{
-	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
-		gfx.Print("play", 30, 500, 2);
-		switch (sel) {
-			case -2:
-				Megalovania.Play();
-				break;
-			case -1:
-				Sans.Play();
-				break;
-			case 0:
-				Asgore.Play();
-				break;
-			case 1:
-				Papyrus.Play();
-				break;
-			case 2:
-				Mettaton.Play();
-				break;
-		}
-	}
-	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
-		Stop();
-	}
-	if (wnd.kbd.KeyIsPressed(VK_UP)) {
-		y += 50;
-		sel -= 1;
-	}
-	if (wnd.kbd.KeyIsPressed(VK_DOWN)) {
-		y -= 50;
-		sel += 1;
-	}
-}
-
 void Game::ComposeFrame() {
-	gfx.Print("dima  musicbox", 400, 30, 1);
+	gfx.Print("dima  musicbox", 400, 20, 1);
 	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
+		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 320, 1);
+		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 280, 1);
+		gfx.Print("O                  O", 400, 300, 1);
+	} else if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
 		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 320, 1);
 		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 280, 1);
 		gfx.Print("X                  X", 400, 300, 1);
-	}
-	else
-	{
+	} else {
 		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 320, 1);
 		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 280, 1);
 		gfx.Print("I                  I", 400, 300, 1);
@@ -99,8 +67,6 @@ void Game::ComposeFrame() {
 	gfx.Print("asgore_battle", 400, 300 + y, 1);
 	gfx.Print("papyrus", 400, 350 + y, 1);
 	gfx.Print("mettaton_battle", 400, 400 + y, 1);
-}
-void Game::Stop() {
-	Sound stop;
-	stop.StopAll();
+	gfx.Print("papyrus_battle", 400, 450 + y, 1);
+	gfx.Print("fallen down", 400, 500 + y, 1);
 }

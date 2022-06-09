@@ -19,13 +19,6 @@
  *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
  ******************************************************************************************/
 #pragma once
-#pragma comment(lib, "dsound.lib")
-#pragma comment(lib, "dxguid.lib")
-#pragma comment(lib, "winmm.lib")
-
- // forward declare WAVEFORMATEX so we don't have to include bullshit headers
-struct tWAVEFORMATEX;
-typedef tWAVEFORMATEX WAVEFORMATEX;
 
 #include "Keyboard.h"
 #include "Mouse.h"
@@ -33,6 +26,8 @@ typedef tWAVEFORMATEX WAVEFORMATEX;
 #include <iostream>
 #include <string>
 #include "Sound.h"
+#include "Control.h"
+
 using std::string;
 
 class Game
@@ -43,22 +38,23 @@ public:
 	Game& operator=(const Game&) = delete;
 	void Go();
 private:
-	void Stop();
+	void Input();
 	void ComposeFrame();
-	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
+	Control ctl;
 	/********************************/
 	/*  User Variables              */
 	/********************************/
-	int y = 0, sel = 0;
 	Sound Sans;
 	Sound Papyrus;
 	Sound Asgore;
 	Sound Mettaton;
 	Sound Megalovania;
+	Sound Fallen;
+	Sound PapyrusB;
 };
