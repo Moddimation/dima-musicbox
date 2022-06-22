@@ -26,7 +26,8 @@
 #include <iostream>
 #include <string>
 #include "Sound.h"
-#include "Control.h"
+#include <thread>
+#include <Windows.h>
 
 using std::string;
 
@@ -39,17 +40,22 @@ public:
 	void Go();
 private:
 	void Input();
-	void ComposeFrame();
+	void Draw();
+	void Selection();
+	void Select();
+	void Stop();
 	/********************************/
 	/*  User Functions              */
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
-	Control ctl;
 	/********************************/
 	/*  User Variables              */
+	int y = 0, sel = 0, pressed = 0;
+	int selmax = 4, selmin = selmax - selmax - selmax;
 	/********************************/
+	Sound Error;
 	Sound Sans;
 	Sound Papyrus;
 	Sound Asgore;
@@ -57,4 +63,6 @@ private:
 	Sound Megalovania;
 	Sound Fallen;
 	Sound PapyrusB;
+	Sound Ruins;
+	Sound DummyB;
 };

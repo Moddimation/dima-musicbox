@@ -1,45 +1,7 @@
-﻿  Control.cpp
-  Game.cpp
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\ChiliWin.h(24,1): warning C4005: "_WIN32_WINNT": Makro-Neudefinition (Quelldatei wird kompiliert Control.cpp)
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : Siehe vorherige Definition von "_WIN32_WINNT" (Quelldatei wird kompiliert Control.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\ChiliWin.h(64,1): warning C4005: "STRICT": Makro-Neudefinition (Quelldatei wird kompiliert Control.cpp)
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : Siehe vorherige Definition von "STRICT" (Quelldatei wird kompiliert Control.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(19,4): error C2065: "Megalovania": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(22,4): error C2065: "Sans": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(25,4): error C2065: "Asgore": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(28,4): error C2065: "Papyrus": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(31,4): error C2065: "Mettaton": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(34,4): error C2065: "Fallen": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(37,4): error C2065: "PapyrusB": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(45,4): error C2065: "Megalovania": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(48,4): error C2065: "Sans": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(51,4): error C2065: "Asgore": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(54,4): error C2065: "Papyrus": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(57,4): error C2065: "Mettaton": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(60,4): error C2065: "Fallen": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.cpp(63,4): error C2065: "PapyrusB": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(37): error C2280: "Control::Control(void)" : Es wurde versucht, auf eine gelöschte Funktion zu verweisen
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.h(16): message : Compiler hat hier "Control::Control" generiert
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.h(16,1): message : "Control::Control(void)": Die Funktion wurde implizit gelöscht, weil "Control" einen nicht initialisierten Datenmember "Control::wnd" mit dem Verweistyp aufweist. (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Control.h(14): message : Siehe Deklaration von "Control::wnd" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(65,38): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(65,42): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(66,31): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(66,35): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(67,40): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(67,44): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(68,34): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(68,38): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(69,42): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(69,46): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(70,41): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(70,45): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(71,38): error C2065: "y": nichtdeklarierter Bezeichner
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Game.cpp(71,42): error C2660: "Graphics::Print": Funktion akzeptiert keine 3 Argumente
-F:\Visual Studio\Projekte\Dima-MusBox\dima-musicbox\Engine\Graphics.h(54,7): message : Siehe Deklaration von "Graphics::Print" (Quelldatei wird kompiliert Game.cpp)
+﻿  Game.cpp
+  Code wird generiert.
+  2 of 1348 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+  Codegenerierung ist abgeschlossen.
+  Engine.vcxproj -> F:\Visual Studio\Projekte\vakhdmyt06\musicbox\x64\Release\Engine.exe

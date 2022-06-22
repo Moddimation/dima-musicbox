@@ -42,6 +42,8 @@ public:
 		HRESULT hr;
 	};
 private:
+	int posx = 0, pos = 0, px = 0, py = 0;
+	std::string name = ".txt";
 	// vertex format for the framebuffer fullscreen textured quad
 	struct FSQVertex
 	{

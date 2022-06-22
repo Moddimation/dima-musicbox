@@ -46,7 +46,6 @@ using Microsoft::WRL::ComPtr;
 
 void Graphics::getChar(char chara, int fontx, int fonty) {
 	std::string charac(1, chara);
-	std::string name(".txt");
 	std::string filename = "char/char_" + charac + name;
 	std::ifstream file(filename);
 	int num = 0, numbers[5] = { 0 };
@@ -58,49 +57,38 @@ void Graphics::getChar(char chara, int fontx, int fonty) {
 			i = -1;
 		}
 	}
-	file.close();
 }
 
 void Graphics::Print(string str, int fontx, int fonty, int mode) {
 	int posx = 0, pos = 0;
-	int leng = str.length();
-	if (leng >= 30) {
-		//PRINT TOO LONG
-		Graphics::TextError(0, fontx, fonty);
-	}
-	else {
-		for (int len = str.length(); len != 0; len--) {
-			int pox = fontx + posx, px, py;
-			if (pox >= 10 && pox <= 790) {
-				if (fonty >= 10 && fonty <= 590) {
-					switch (mode) {
-					case 0:
-						px = pox;
-						py = fonty;
-						break;
-					case 1:
-						px = pox - ((leng / 2) * 14);
-						py = fonty;
-						break;
-					case 2:
-						px = pox + (rand() % 3 - -3);
-						py = fonty + (rand() % 3 - -3);
-						break;
-					case 3:
-						px = pox - ((leng / 2) * 14) + (rand() % 4 - -4);
-						py = fonty + (rand() % 3 - -3);
-						break;
-					case 4:
-						break;
-					}
-					getChar(str[pos], px, py);
-					posx += 14;
-					pos += 1;
-				}
+	for (int len = str.length(); len != 0; len--) {
+		int pox = fontx + posx;
+		if (pox >= 10 && pox <= 790 && fonty >= 10 && fonty <= 590) {
+			switch (mode) {
+			case 0:
+				px = pox;
+				py = fonty;
+				break;
+			case 1:
+				px = pox - ((str.length() / 2) * 14);
+				py = fonty;
+				break;
+			case 2:
+				px = pox + (rand() % 3 - -3);
+				py = fonty + (rand() % 3 - -3);
+				break;
+			case 3:
+				px = pox - ((str.length() / 2) * 14) + (rand() % 4 - -4);
+				py = fonty + (rand() % 3 - -3);
+				break;
+			case 4:
+				px = pox - ((str.length() / 2) * 14) + (rand() % 4 - -4);
+				py = fonty + (rand() % 2 - -2);
+				break;
 			}
-			else {
-				TextError(1, fontx, fonty);
-			}
+			getChar(str[pos], px, py);
+			posx += 14;
+			pos += 1;
 		}
 	}
 }
@@ -108,10 +96,10 @@ void Graphics::Print(string str, int fontx, int fonty, int mode) {
 void Graphics::TextError(int n, int fontx, int fonty) {
 	switch (n) {
 	case 0://length out of range
-		Print("err len oor", fontx, fonty, 0);
+		Print("err len oor", fontx, fonty, 3);
 		break;
 	case 1://pos out of range
-		Print("err pos oor", 400, fonty, 0);
+		Print("", 400, 520, 0);
 		break;
 	}
 }

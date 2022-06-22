@@ -27,41 +27,74 @@ Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
 	gfx(wnd),
+	Error(L"Music/mus_dance_of_dog.mp3"),
 	Asgore(L"Music/mus_vsasgore.mp3"),
 	Papyrus(L"Music/mus_papyrus.mp3"),
 	Sans(L"Music/mus_muscle.mp3"),
 	Mettaton(L"Music/mus_mettatonbattle.mp3"),
 	Megalovania(L"Music/mus_zz_megalovania.mp3"),
-	Fallen(L"ASS"),
-	PapyrusB(L"ASS")
+	Fallen(L"Music/mus_fallendown2.mp3"),
+	PapyrusB(L"Music/mus_papyrusboss.mp3"),
+	Ruins(L"Music/mus_ruins.mp3"),
+	DummyB(L"Music/mus_dummybattle.mp3")
 {
 }
 
 void Game::Go()
 {
 	gfx.BeginFrame();
-	/*if (init == 0) {
-		BootScreen();
-	}*/
-	ComposeFrame();
+	std::thread draw(&Game::Draw, this);
+	std::thread selbox(&Game::Selection, this);
+	std::thread input(&Game::Input, this);
+	draw.join(); input.join(); selbox.join();
 	gfx.EndFrame();
 }
 
-void Game::ComposeFrame() {
-	gfx.Print("dima  musicbox", 400, 20, 1);
+void Game::Input() {
+	if (wnd.kbd.KeyIsPressed(VK_UP)&&sel>selmin) {
+		Sleep(40);
+		y += 50;
+		sel -= 1;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN)&&sel<selmax) {
+		Sleep(40);
+		y -= 50;
+		sel += 1;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_RETURN)&&pressed==0) {
+		pressed = 1;
+		gfx.Print("play", 30, 500, 2);
+		Select();
+		Sleep(5000);
+		pressed = 0;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
+		gfx.Print("stop", 30, 500, 2);
+		Stop();
+	}
+}
+void Game::Selection() {
 	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
 		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 320, 1);
 		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 280, 1);
-		gfx.Print("O                  O", 400, 300, 1);
-	} else if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
+		gfx.Print("O", 526, 300, 1);
+		gfx.Print("O", 274, 300, 1);
+	}
+	else if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
 		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 320, 1);
 		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 280, 1);
-		gfx.Print("X                  X", 400, 300, 1);
-	} else {
+		gfx.Print("X", 526, 300, 1);
+		gfx.Print("X", 274, 300, 1);
+	}
+	else {
 		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 320, 1);
 		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 280, 1);
-		gfx.Print("I                  I", 400, 300, 1);
+		gfx.Print("I", 526, 300, 1);
+		gfx.Print("I", 274, 300, 1);
 	}
+}
+void Game::Draw() {
+	gfx.Print("dima musicbox", 400, 30, 1);
 	gfx.Print("megalovania", 400, 200 + y, 1);
 	gfx.Print("sans", 400, 250 + y, 1);
 	gfx.Print("asgore_battle", 400, 300 + y, 1);
@@ -69,4 +102,77 @@ void Game::ComposeFrame() {
 	gfx.Print("mettaton_battle", 400, 400 + y, 1);
 	gfx.Print("papyrus_battle", 400, 450 + y, 1);
 	gfx.Print("fallen down", 400, 500 + y, 1);
+	gfx.Print("ruins", 400, 150 + y, 1);
+	gfx.Print("dummy_battle", 400, 100 + y, 1);
+	if (sel == 0) { gfx.Print("A", 100, 100, 0); }
+	if (sel == -1) { gfx.Print("mb", 100, 100, 0); }
+	if (sel == 1) { gfx.Print("B", 100, 100, 0); }
+	if (sel == 2) { gfx.Print("C", 100, 100, 0); }
+	if (sel == -2) { gfx.Print("mc", 100, 100, 0); }
+	if (sel == 3) { gfx.Print("D", 100, 100, 0); }
+	if (sel == -3) { gfx.Print("md", 100, 100, 0); }
+}
+void Game::Select() {
+	switch (sel) {
+	case -4:
+		DummyB.Play();
+		break;
+	case -3:
+		Ruins.Play();
+		break;
+	case -2:
+		Megalovania.Play();
+		break;
+	case -1:
+		Sans.Play();
+		break;
+	case 0:
+		Asgore.Play();
+		break;
+	case 1:
+		Papyrus.Play();
+		break;
+	case 2:
+		Mettaton.Play();
+		break;
+	case 4:
+		Fallen.Play();
+		break;
+	case 3:
+		PapyrusB.Play();
+		break;
+	default:
+		Error.Play();
+	}
+}
+void Game::Stop() {
+	switch (sel) {
+	case -4:
+		DummyB.StopAll();
+		break;
+	case -3:
+		Ruins.StopAll();
+		break;
+	case -2:
+		Megalovania.StopAll();
+		break;
+	case -1:
+		Sans.StopAll();
+		break;
+	case 0:
+		Asgore.StopAll();
+		break;
+	case 1:
+		Papyrus.StopAll();
+		break;
+	case 2:
+		Mettaton.StopAll();
+		break;
+	case 4:
+		Fallen.StopAll();
+		break;
+	case 3:
+		PapyrusB.StopAll();
+		break;
+	}
 }
