@@ -44,53 +44,59 @@ void Game::Go()
 {
 	gfx.BeginFrame();
 	std::thread draw(&Game::Draw, this);
-	std::thread selbox(&Game::Selection, this);
 	std::thread input(&Game::Input, this);
-	draw.join(); input.join(); selbox.join();
+	draw.join(); input.join();
 	gfx.EndFrame();
 }
 
 void Game::Input() {
 	if (wnd.kbd.KeyIsPressed(VK_UP)&&sel>selmin) {
-		Sleep(40);
+		Sleep(200);
 		y += 50;
 		sel -= 1;
 	}
 	if (wnd.kbd.KeyIsPressed(VK_DOWN)&&sel<selmax) {
-		Sleep(40);
+		Sleep(200);
 		y -= 50;
 		sel += 1;
 	}
-	if (wnd.kbd.KeyIsPressed(VK_RETURN)&&pressed==0) {
-		pressed = 1;
+	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
 		gfx.Print("play", 30, 500, 2);
+		gfx.Print("play", 30, 500, 2);
+		gfx.Print("play", 30, 500, 2);
+		gfx.Print("play", 30, 500, 2);
+		Selection(1);
 		Select();
-		Sleep(5000);
-		pressed = 0;
+		Sleep(500);
 	}
 	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
 		gfx.Print("stop", 30, 500, 2);
+		gfx.Print("stop", 30, 500, 2);
+		Selection(2);
 		Stop();
 	}
+	Selection(0);
 }
-void Game::Selection() {
-	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
+void Game::Selection(int selec) {
+	switch(selec){
+		case 1:
 		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 320, 1);
 		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 280, 1);
 		gfx.Print("O", 526, 300, 1);
-		gfx.Print("O", 274, 300, 1);
-	}
-	else if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
+		gfx.Print("O", 260, 300, 1);
+		break;
+		case 2:
 		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 320, 1);
 		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 280, 1);
 		gfx.Print("X", 526, 300, 1);
-		gfx.Print("X", 274, 300, 1);
-	}
-	else {
+		gfx.Print("X", 260, 300, 1);
+		break;
+		case 0:
 		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 320, 1);
 		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 280, 1);
 		gfx.Print("I", 526, 300, 1);
-		gfx.Print("I", 274, 300, 1);
+		gfx.Print("I", 260, 300, 1);
+		break;
 	}
 }
 void Game::Draw() {
@@ -103,14 +109,6 @@ void Game::Draw() {
 	gfx.Print("papyrus_battle", 400, 450 + y, 1);
 	gfx.Print("fallen down", 400, 500 + y, 1);
 	gfx.Print("ruins", 400, 150 + y, 1);
-	gfx.Print("dummy_battle", 400, 100 + y, 1);
-	if (sel == 0) { gfx.Print("A", 100, 100, 0); }
-	if (sel == -1) { gfx.Print("mb", 100, 100, 0); }
-	if (sel == 1) { gfx.Print("B", 100, 100, 0); }
-	if (sel == 2) { gfx.Print("C", 100, 100, 0); }
-	if (sel == -2) { gfx.Print("mc", 100, 100, 0); }
-	if (sel == 3) { gfx.Print("D", 100, 100, 0); }
-	if (sel == -3) { gfx.Print("md", 100, 100, 0); }
 }
 void Game::Select() {
 	switch (sel) {

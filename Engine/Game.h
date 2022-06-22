@@ -41,7 +41,7 @@ public:
 private:
 	void Input();
 	void Draw();
-	void Selection();
+	void Selection(int selec);
 	void Select();
 	void Stop();
 	/********************************/
@@ -52,7 +52,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	int y = 0, sel = 0, pressed = 0;
+	int y = 0, sel = 0;
 	int selmax = 4, selmin = selmax - selmax - selmax;
 	/********************************/
 	Sound Error;
