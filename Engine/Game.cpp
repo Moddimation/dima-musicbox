@@ -110,6 +110,7 @@ void Game::Draw() {
 	gfx.Print("papyrus_battle", 400, 450 + y, 1);
 	gfx.Print("fallen down", 400, 500 + y, 1);
 	gfx.Print("ruins", 400, 150 + y, 1);
+	gfx.Print("dummy_battle", 400, 100 + y, 1);
 }
 void Game::Select() {
 	switch (sel) {

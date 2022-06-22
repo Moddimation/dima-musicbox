@@ -1,14 +1,7 @@
 ﻿  Game.cpp
-  Graphics.cpp
-  Main.cpp
-  MainWindow.cpp
-F:\Visual Studio\Projekte\vakhdmyt06\musicbox\Engine\Graphics.cpp(64,2): warning C4267: "Initialisierung": Konvertierung von "size_t" nach "int", Datenverlust möglich
-F:\Visual Studio\Projekte\vakhdmyt06\musicbox\Engine\Graphics.cpp(73,41): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
-F:\Visual Studio\Projekte\vakhdmyt06\musicbox\Engine\Graphics.cpp(81,61): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
-F:\Visual Studio\Projekte\vakhdmyt06\musicbox\Engine\Graphics.cpp(85,61): warning C4267: "=": Konvertierung von "size_t" nach "int", Datenverlust möglich
   Code wird generiert.
-  27 of 1344 functions ( 2.0%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    46 functions had inline decision re-evaluated but remain unchanged
+  6 of 1344 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    26 functions had inline decision re-evaluated but remain unchanged
   Codegenerierung ist abgeschlossen.
   Engine.vcxproj -> F:\Visual Studio\Projekte\vakhdmyt06\musicbox\x64\Release\Engine.exe
