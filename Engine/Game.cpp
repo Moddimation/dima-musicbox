@@ -65,12 +65,13 @@ void Game::Input() {
 		gfx.Print("play", 30, 500, 2);
 		gfx.Print("play", 30, 500, 2);
 		gfx.Print("play", 30, 500, 2);
+		gfx.Print("play", 30, 500, 2);
+		gfx.Print("play", 30, 500, 2);
 		Selection(1);
 		Select();
 		Sleep(500);
 	}
 	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
-		gfx.Print("stop", 30, 500, 2);
 		gfx.Print("stop", 30, 500, 2);
 		Selection(2);
 		Stop();
