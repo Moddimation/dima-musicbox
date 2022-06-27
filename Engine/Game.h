@@ -53,7 +53,7 @@ private:
 	/********************************/
 	/*  User Variables              */
 	int y = 0, sel = 0;
-	int selmax = 4, selmin = selmax - selmax - selmax;
+	int selmax = 5, selmin = selmax - selmax - selmax;
 	/********************************/
 	Sound Error;
 	Sound Sans;
@@ -65,4 +65,5 @@ private:
 	Sound PapyrusB;
 	Sound Ruins;
 	Sound DummyB;
+	Sound Undyne;
 };

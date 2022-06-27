@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Engine"
   ],
-  "SelectedNode": "\\Chili Framework 2016.sln",
+  "SelectedNode": "\\Engine\\Game.cpp",
   "PreviewInSolutionExplorer": false
 }

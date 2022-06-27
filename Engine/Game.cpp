@@ -36,7 +36,8 @@ Game::Game(MainWindow& wnd)
 	Fallen(L"Music/mus_fallendown2.mp3"),
 	PapyrusB(L"Music/mus_papyrusboss.mp3"),
 	Ruins(L"Music/mus_ruins.mp3"),
-	DummyB(L"Music/mus_dummybattle.mp3")
+	DummyB(L"Music/mus_dummybattle.mp3"),
+	Undyne(L"Music/mus_undyneboss.mp3")
 {
 }
 
@@ -61,11 +62,6 @@ void Game::Input() {
 		sel += 1;
 	}
 	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
-		gfx.Print("play", 30, 500, 2);
-		gfx.Print("play", 30, 500, 2);
-		gfx.Print("play", 30, 500, 2);
-		gfx.Print("play", 30, 500, 2);
-		gfx.Print("play", 30, 500, 2);
 		gfx.Print("play", 30, 500, 2);
 		Selection(1);
 		Select();
@@ -102,6 +98,7 @@ void Game::Selection(int selec) {
 }
 void Game::Draw() {
 	gfx.Print("dima musicbox", 400, 30, 1);
+	gfx.Print("limited edition", 400, 50 + y, 1);
 	gfx.Print("megalovania", 400, 200 + y, 1);
 	gfx.Print("sans", 400, 250 + y, 1);
 	gfx.Print("asgore_battle", 400, 300 + y, 1);
@@ -111,6 +108,7 @@ void Game::Draw() {
 	gfx.Print("fallen down", 400, 500 + y, 1);
 	gfx.Print("ruins", 400, 150 + y, 1);
 	gfx.Print("dummy_battle", 400, 100 + y, 1);
+	gfx.Print("undyne_battle", gfx.ScreenWidth / 2, 550 + y, 1);
 }
 void Game::Select() {
 	switch (sel) {
@@ -140,6 +138,9 @@ void Game::Select() {
 		break;
 	case 3:
 		PapyrusB.Play();
+		break;
+	case 5:
+		Undyne.Play();
 		break;
 	default:
 		Error.Play();
@@ -173,6 +174,12 @@ void Game::Stop() {
 		break;
 	case 3:
 		PapyrusB.StopAll();
+		break;
+	case 5:
+		Undyne.StopAll();
+		break;
+	default:
+		Error.Play();
 		break;
 	}
 }
