@@ -1,16 +1,17 @@
-Compiled with VS22
+Compiled with VS22  
+A little Project of mine, playing a set amount of undertale music tracks  
+To Start run "Engine.exe" inside the x64/Release, or x64/Devel for testing purposes  
+I use Debug in realy rare cases, devel all the time and Release for a new stable version  
+The exe cant work on its own without the files sorrounding it(dll, char and music)  
+The Release in releases isnt updated often, please use the one in /x64/Release/  
 
-A little Project of mine, currently playing 9 preset songs.
-To Start run "Engine.exe" inside the x64/Release, or x64/Devel for testing purposes (but i usually compile latest code with Release, runs smoother)
 It hangs a few seconds on boot, thats normal
 
-Controls:
 
-Up | Down  =  Change current track
-
-Enter      =  Play
-
-ESC        =  Stop current song
-
+Controls:  
+Up | Down    =  Change current track  
+Left | Right =  Change Looping amount(COMING SOON)
+Enter        =  Play  
+ESC          =  Stop current song  
 
 BattleDima6090#4832  Discord tag for contacting purposes
