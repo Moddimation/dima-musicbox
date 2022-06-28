@@ -41,7 +41,8 @@ public:
 private:
 	void Input();
 	void Draw();
-	void Selection(int selec);
+	void Selection(int selec); 
+	void printname(string name, int pos);
 	void Select();
 	void Stop();
 	/********************************/
@@ -52,9 +53,11 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	int y = 0, sel = 0;
-	int selmax = 5, selmin = selmax - selmax - selmax;
+	int y = 0, sel = 0, repeat = 0;
+	const int selmax = 5, selmin = selmax - selmax - selmax;
+	const int wid = gfx.ScreenWidth, hei = gfx.ScreenHeight, heim = hei / 2, widm = wid / 2;
 	/********************************/
+	bool key(unsigned char key) { if (wnd.kbd.KeyIsPressed(key)) { return true; } else { return false; } }
 	Sound Error;
 	Sound Sans;
 	Sound Papyrus;

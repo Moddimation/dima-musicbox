@@ -51,64 +51,69 @@ void Game::Go()
 }
 
 void Game::Input() {
-	if (wnd.kbd.KeyIsPressed(VK_UP)&&sel>selmin) {
+	if (key(VK_UP) && sel>selmin) {
 		Sleep(200);
 		y += 50;
 		sel -= 1;
 	}
-	if (wnd.kbd.KeyIsPressed(VK_DOWN)&&sel<selmax) {
+	if (key(VK_DOWN)&&sel<selmax) {
 		Sleep(200);
 		y -= 50;
 		sel += 1;
 	}
-	if (wnd.kbd.KeyIsPressed(VK_RETURN)) {
-		gfx.Print("play", 30, 500, 2);
+	key(VK_LEFT) ? repeat-- : repeat;
+	key(VK_RIGHT) ? repeat++ : repeat;
+	if (key(VK_RETURN)) {
+		gfx.Print("play", 30, hei - 100, 2);
 		Selection(1);
 		Select();
 		Sleep(500);
 	}
-	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
-		gfx.Print("stop", 30, 500, 2);
+	if (key(VK_ESCAPE)) {
+		gfx.Print("stop", 30, hei-100, 2);
 		Selection(2);
 		Stop();
 	}
 	Selection(0);
 }
 void Game::Selection(int selec) {
-	switch(selec){
-		case 1:
-		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 320, 1);
-		gfx.Print("OOOOOOOOOOOOOOOOOOOO", 400, 280, 1);
-		gfx.Print("O", 526, 300, 1);
-		gfx.Print("O", 260, 300, 1);
+	switch (selec) {
+	case 1:
+		gfx.Print("OOOOOOOOOOOOOOOOOOO", widm, heim + 20, 1);
+		gfx.Print("OOOOOOOOOOOOOOOOOOO", widm, heim - 20, 1);
+		gfx.Print("O", widm + 126, 300, 1);
+		gfx.Print("O", widm - 126, 300, 1);
 		break;
-		case 2:
-		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 320, 1);
-		gfx.Print("XXXXXXXXXXXXXXXXXXXX", 400, 280, 1);
-		gfx.Print("X", 526, 300, 1);
-		gfx.Print("X", 260, 300, 1);
+	case 2:
+		gfx.Print("XXXXXXXXXXXXXXXXXXX", widm, heim + 20, 1);
+		gfx.Print("XXXXXXXXXXXXXXXXXXX", widm, heim - 20, 1);
+		gfx.Print("X", widm + 126, 300, 1);
+		gfx.Print("X", widm - 126, 300, 1);
 		break;
-		case 0:
-		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 320, 1);
-		gfx.Print("IIIIIIIIIIIIIIIIIIII", 400, 280, 1);
-		gfx.Print("I", 526, 300, 1);
-		gfx.Print("I", 260, 300, 1);
+	case 0:
+		gfx.Print("IIIIIIIIIIIIIIIIIII", widm, heim + 20, 1);
+		gfx.Print("IIIIIIIIIIIIIIIIIII", widm, heim - 20, 1);
+		gfx.Print("I", widm + 126, 300, 1);
+		gfx.Print("I", widm - 126, 300, 1);
 		break;
 	}
 }
+void Game::printname(string name, int pos){
+	gfx.Print(name, widm, (pos * 50) + 300 + y, 1);
+}
 void Game::Draw() {
-	gfx.Print("dima musicbox", 400, 30, 1);
-	gfx.Print("limited edition", 400, 50 + y, 1);
-	gfx.Print("megalovania", 400, 200 + y, 1);
-	gfx.Print("sans", 400, 250 + y, 1);
-	gfx.Print("asgore_battle", 400, 300 + y, 1);
-	gfx.Print("papyrus", 400, 350 + y, 1);
-	gfx.Print("mettaton_battle", 400, 400 + y, 1);
-	gfx.Print("papyrus_battle", 400, 450 + y, 1);
-	gfx.Print("fallen down", 400, 500 + y, 1);
-	gfx.Print("ruins", 400, 150 + y, 1);
-	gfx.Print("dummy_battle", 400, 100 + y, 1);
-	gfx.Print("undyne_battle", gfx.ScreenWidth / 2, 550 + y, 1);
+	gfx.Print("dima musicbox", widm, 30, 1);
+	printname("limited edition", -5);
+	printname("megalovania", -2);
+	printname("sans", -1);
+	printname("asgore_battle", 0);
+	printname("papyrus", 1);
+	printname("mettaton_battle", 2);
+	printname("papyrus_battle", 3);
+	printname("fallen down", 4);
+	printname("ruins", -3);
+	printname("dummy_battle", -4);
+	printname("undyne_battle", 5);
 }
 void Game::Select() {
 	switch (sel) {
