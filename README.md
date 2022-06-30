@@ -10,8 +10,8 @@ It hangs a few seconds on boot, thats normal
 
 Controls:  
 Up | Down    =  Change current track  
-Left | Right =  Change Looping amount(COMING SOON)
-Enter        =  Play  
+Left | Right =  Change Looping amount(COMING SOON)  
+Enter        =  Play selected song  
 ESC          =  Stop current song  
 
 BattleDima6090#4832  Discord tag for contacting purposes
