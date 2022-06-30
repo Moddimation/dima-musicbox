@@ -69,4 +69,5 @@ private:
 	Sound Ruins;
 	Sound DummyB;
 	Sound Undyne;
+	Sound Story;
 };
